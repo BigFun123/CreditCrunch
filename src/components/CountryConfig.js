@@ -1,9 +1,8 @@
+import React, { Component } from "react";
+
 /**
  * Configures banned countries
  */
-
-import React, { Component } from "react";
-
 export default class CountryConfig extends Component {
     constructor(props) {
         super(props);

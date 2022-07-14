@@ -6,7 +6,7 @@ import CreditCardInfo from "../model/CreditCardInfo";
 
 /**
  * Credit Card input processor, 
- * with pretty credict card that changes according to number
+ * with pretty credit card that changes according to number
  * with cc number and country validation
  */
 export default class CreditInput extends Component {

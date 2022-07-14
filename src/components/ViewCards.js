@@ -1,5 +1,8 @@
 import React, { Component } from "react";
 
+/**
+ * View list of captured cards
+ */
 export default class ViewCards extends Component {
     constructor(props) {
         super(props);
