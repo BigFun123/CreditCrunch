@@ -1,0 +1,117 @@
+.App {
+  text-align: center;
+  background-color: #382c34;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #382c34;
+  min-height: 10vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 1vmin);
+  color: white;
+}
+
+.App-body {
+  background-color: #282c34;
+  min-height: 90vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 1vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+input {
+  clear:both;
+  display:block;
+  font-size: 22px;
+  width: 98%;
+}
+
+.menu-item {
+  float:left;
+  width: 200px;
+  display: block;
+  cursor: pointer;
+  padding-bottom: 4px;
+}
+
+.menu-item:hover {
+  background-color: cornflowerblue;
+}
+
+.error {
+  display: block;
+  margin-top: 10px;
+  padding-bottom: 3px;  
+  background-color: red;
+}
+
+.success {
+  display: block;
+  margin-top: 10px;
+  padding-bottom: 3px;  
+  background-color: green;
+}
+
+.rccs {
+  padding-bottom: 10px;
+}
+
+.country-item {  
+  cursor: pointer;    
+}
+
+.delete-button {
+  cursor: pointer;  
+  background:red;        
+  width: 30px;
+  margin-right:10px;
+}
+
+.add-button {
+  cursor: pointer;  
+  background:green;        
+  width: 30px;
+  margin-right:10px;
+}
+
+.button {
+  font-size:22px;
+  margin: 10px;
+}
+
+.grid {
+  display: flex;  
+  margin:10px;
+  width: 100%;
+}
+
