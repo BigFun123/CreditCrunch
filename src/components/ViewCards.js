@@ -15,8 +15,8 @@ export default class ViewCards extends Component {
                 <div>Captured Cards </div>
                 {
                     this.cardStore.map((card, index) => (
-                        <div className="grid">                        
-                        <div>{card.Number} | {card.Name} | {card.Expiry} | {card.CVC}</div>
+                        <div className="grid">
+                            <div>{card.Number} | {card.Name} | {card.Expiry} | {card.CVC}</div>
                         </div>
                     ))
                 }

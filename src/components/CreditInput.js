@@ -1,4 +1,4 @@
-import React, {Component} from "react";
+import React, { Component } from "react";
 import Payment from "payment";
 import Cards from "react-credit-cards";
 import 'react-credit-cards/es/styles-compiled.css';
@@ -10,19 +10,19 @@ import CreditCardInfo from "../model/CreditCardInfo";
  * with cc number and country validation
  */
 export default class CreditInput extends Component {
-    constructor(props){
+    constructor(props) {
         super(props);
-        this.state={number:"", name:"", expiry:"", cvc:"", focus:"", error:"", message:""};
-        this.countryCheck = this.props.countryCheck;        
+        this.state = { number: "", name: "", expiry: "", cvc: "", focus: "", error: "", message: "" };
+        this.countryCheck = this.props.countryCheck;
     }
 
-    componentDidMount() {        
+    componentDidMount() {
         Payment.formatCardNumber(this.getCardInput());
     }
 
-    validateCard(e) {         
-        e.preventDefault();       
-        this.setState({error:""});
+    validateCard(e) {
+        e.preventDefault();
+        this.setState({ error: "" });
         var valid = Payment.fns.validateCardNumber(this.state.number);
 
         if (!valid) {
@@ -52,9 +52,9 @@ export default class CreditInput extends Component {
 
     storeCard() {
         let card = new CreditCardInfo(this.state.number, this.state.name, this.state.expiry, this.state.cvc);
-        if (this.props.cardStore.addCard(card) ) {
+        if (this.props.cardStore.addCard(card)) {
             this.showMessage("Successfully captured card");
-            setTimeout(()=>{
+            setTimeout(() => {
                 this.clear();
             }, 1000);
         } else {
@@ -63,15 +63,15 @@ export default class CreditInput extends Component {
     }
 
     clear() {
-        this.setState({number:"", name:"", expiry:"", cvc:"", focus:"", error:"", message:""});
+        this.setState({ number: "", name: "", expiry: "", cvc: "", focus: "", error: "", message: "" });
     }
 
     showMessage(message) {
-        this.setState({message:message});
+        this.setState({ message: message });
     }
 
     showError(message) {
-        this.setState({error:message});
+        this.setState({ error: message });
     }
 
     getCountryInput() {
@@ -83,41 +83,41 @@ export default class CreditInput extends Component {
     }
 
     render() {
-        return(
+        return (
             <div className="card-container">
                 <Cards
-                number={this.state.number}
-                name={this.state.name}
-                expiry={this.state.expiry}
-                cvc={this.state.cvc}
-                focused={this.state.focus}
-                />                
-                <form autoComplete="on">                    
-                    <input required type='tel' id="cc-num" name="number" placeholder="Card number" 
-                        value={this.state.number} 
-                        onChange={e=>this.setState({number:e.target.value})}
-                        onFocus={e=>this.setState({focus:e.target.name})}></input>
-                     <input required type='text' name="name" placeholder="Name" 
-                        value={this.state.name} 
-                        onChange={e=>this.setState({name:e.target.value})}
-                        onFocus={e=>this.setState({focus:e.target.name})}
-                        ></input>
-                    <input required type='text' name="expiry" placeholder="MM/YY" 
-                        value={this.state.expiry} 
-                        onChange={e=>this.setState({expiry:e.target.value})}
-                        onFocus={e=>this.setState({focus:e.target.name})}
-                        ></input>
-                    <input required type='tel' name="cvc" placeholder="cvc" 
-                        value={this.state.cvc} 
-                        onChange={e=>this.setState({cvc:e.target.value})}
-                        onFocus={e=>this.setState({focus:e.target.name})}
-                        ></input>
-                    <input required type='text' id="country" name="country" placeholder="Country" 
-                        value={this.state.country} 
-                        onChange={e=>this.setState({country:e.target.value})}
-                        onFocus={e=>this.setState({focus:e.target.name})}
-                        ></input>
-                    <button className="button" onClick={(e)=>this.validateCard(e)}>Submit</button>
+                    number={this.state.number}
+                    name={this.state.name}
+                    expiry={this.state.expiry}
+                    cvc={this.state.cvc}
+                    focused={this.state.focus}
+                />
+                <form autoComplete="on">
+                    <input required type='tel' id="cc-num" name="number" placeholder="Card number"
+                        value={this.state.number}
+                        onChange={e => this.setState({ number: e.target.value })}
+                        onFocus={e => this.setState({ focus: e.target.name })}></input>
+                    <input required type='text' name="name" placeholder="Name"
+                        value={this.state.name}
+                        onChange={e => this.setState({ name: e.target.value })}
+                        onFocus={e => this.setState({ focus: e.target.name })}
+                    ></input>
+                    <input required type='text' name="expiry" placeholder="MM/YY"
+                        value={this.state.expiry}
+                        onChange={e => this.setState({ expiry: e.target.value })}
+                        onFocus={e => this.setState({ focus: e.target.name })}
+                    ></input>
+                    <input required type='tel' name="cvc" placeholder="cvc"
+                        value={this.state.cvc}
+                        onChange={e => this.setState({ cvc: e.target.value })}
+                        onFocus={e => this.setState({ focus: e.target.name })}
+                    ></input>
+                    <input required type='text' id="country" name="country" placeholder="Country"
+                        value={this.state.country}
+                        onChange={e => this.setState({ country: e.target.value })}
+                        onFocus={e => this.setState({ focus: e.target.name })}
+                    ></input>
+                    <button className="button" onClick={(e) => this.validateCard(e)}>Submit</button>
                     {this.state.error && <label className="error">{this.state.error}</label>}
                     {this.state.message && <label className="success">{this.state.message}</label>}
                 </form>

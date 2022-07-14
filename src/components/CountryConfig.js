@@ -14,12 +14,12 @@ export default class CountryConfig extends Component {
      * Adds a new country if it does not exist in the store
      */
     addCountry() {
-        let item = this.state.newCountry;        
+        let item = this.state.newCountry;
         this.store.addCountry(item);
-        this.setState({newCountry:""}); //redraw
+        this.setState({ newCountry: "" }); //redraw
     }
 
-    deleteCountry(country) {        
+    deleteCountry(country) {
         this.store.deleteCountry(country);
         this.setState({}); //redraw
     }
@@ -31,15 +31,15 @@ export default class CountryConfig extends Component {
                 {
                     this.store.getStore().map((item, index) => (
                         <div className="grid">
-                            <div className="delete-button" 
-                                onClick={(e)=>this.deleteCountry(item)}>-</div>
+                            <div className="delete-button"
+                                onClick={(e) => this.deleteCountry(item)}>-</div>
                             <div className="country-item">{item}</div>
                         </div>
                     ))
                 }
                 <div className="grid">
-                <input className="country-item" onChange={(e) => this.setState({ newCountry: e.target.value })} value={this.state.newCountry}></input>
-                <div className="add-button" onClick={() => { this.addCountry() }}>+</div>
+                    <input className="country-item" onChange={(e) => this.setState({ newCountry: e.target.value })} value={this.state.newCountry}></input>
+                    <div className="add-button" onClick={() => { this.addCountry() }}>+</div>
                 </div>
             </div>
 

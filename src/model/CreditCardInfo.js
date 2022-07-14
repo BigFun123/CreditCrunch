@@ -4,7 +4,7 @@ export default class CreditCardInfo {
     Name;
     Expiry;
     CVC;
-    constructor(inNumber, inName, inExpiry, inCVC ) {
+    constructor(inNumber, inName, inExpiry, inCVC) {
         this.Number = inNumber;
         this.Name = inName;
         this.Expiry = inExpiry;

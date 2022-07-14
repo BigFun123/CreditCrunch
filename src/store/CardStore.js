@@ -7,8 +7,8 @@ export default class CardStore {
      */
     addCard(card) {
         if (!this.cards.find(
-            (qc)=>qc.Number === card.Number)
-            ) {
+            (qc) => qc.Number === card.Number)
+        ) {
             this.cards.push(card);
             return true;
         } else {
